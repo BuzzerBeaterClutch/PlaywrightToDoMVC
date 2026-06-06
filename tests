@@ -1,0 +1,15 @@
+import { expect } from "playwright/test";
+
+test('create todo item', async ({page}) => {
+    await page.goto('https://todomvc.com/examples/react/dist/');
+
+    const todoInput = page.getByPlaceholder('What needs to be done?');
+
+    await todoInput.fill('Finish this assignment');
+
+    await todoInput.press('Enter');
+
+    const todoItem = page.locator('.todo-list li');
+    
+    await expect(locator).toHaveText('Finish this assignment');
+});
